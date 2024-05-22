@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/faf88445ba.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Dashboard | Pizza Place</title>
+    <script>
+        $(document).ready(function(){
+            // Gunakan metode .load() untuk memuat konten dari file HTML lain ke dalam div dengan id "content"
+            $("#content").load("navbar.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+    <div id="main-dashboard">
+        <section>
+            <div class="dashboard-base">
+                <div class="dashboard-desc">
+                    <h1>Dashboard</h1>
+                    <h4>Welcome to Pizza Place Dashboard!</h4>
+                </div>
+                <div class="dashboard-content">
+                    <p>Summary</p>
+                    <div class="dashboard-filter">
+                        <span>Filter</span>
+                        <select id="month-select">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div class="dashboard-button">
+                        <button onclick="sortAllCharts()">Sort</button>
+                    </div>
+                    <div class="dashboard-summary">
+                        <div class="dashboard-summary-container">
+                            <img src="./img/pizza.jpg" alt="">
+                            <div class="dashboard-summary-isi">
+                                <h2 id="total-quantity-value"></h2>
+                                <span>Pizza Sold</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-summary-container">
+                            <img src="./img/income.jpg" alt="">
+                            <div class="dashboard-summary-isi">
+                                <h2 id="total-value"></h2>
+                                <span>Income</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-summary-container">
+                            <img src="./img/profit.jpg" alt="">
+                            <div class="dashboard-summary-isi">
+                                <h2>$500</h2>
+                                <span>Profit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="dashboard-stat-base">
+                <div class="dashboard-stat">
+                    <div class="chart">
+                        <p>Total Sales per Year</p>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                              <canvas id="TotalSalesYear"></canvas>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="chart">
+                        <p>Trending Pizza Now 🔥</p>
+                        <div id="current-season"></div>
+                        <table id="pizza-table">
+                            <thead>
+                              <tr>
+                                <th>Pizza Name</th>
+                                <th>Total</th>
+                              </tr>
+                            </thead>
+                            <tbody id="pizza-table-body" style="text-align: center;">
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="chart">
+                        <p>Busy Time</p>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                              <canvas id="BusyTimeChart"></canvas>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="chart">
+                        <p>Top 5 Best Selling Pizzas</p>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                              <canvas id="TopPizzaChart"></canvas>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="chart">
+                        <p>Best Pizza Category</p>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                              <canvas id="TopPizzaCategory"></canvas>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="chart">
+                        <p>Top Pizza Size</p>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                              <canvas id="TopPizzaSize"></canvas>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section>
+        <div class="footer">
+            <p>© Section Semarang Team 22 RevoU 2024. All Rights Reserved</p>
+        </div>
+    </section>
+
+    <script src="./js/chart.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+    fetchDataAndCreateTable();
+    selectElement.addEventListener("change", (e) =>{
+    month = e.target.value;
+    document.getElementById('current-season').textContent = getSeason(month);})
+    </script>
+</body>
+</html>

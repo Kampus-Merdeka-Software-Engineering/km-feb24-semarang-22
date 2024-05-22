@@ -1,0 +1,18 @@
+[
+ {
+   "TimeShift": "AFTERNOON",
+   "TotalPizzaSold": 18568
+ },
+ {
+   "TimeShift": "NOON",
+   "TotalPizzaSold": 17481
+ },
+ {
+   "TimeShift": "MORNING",
+   "TotalPizzaSold": 9526
+ },
+ {
+   "TimeShift": "EVENING",
+   "TotalPizzaSold": 3999
+ }
+]

@@ -1,0 +1,49 @@
+[{
+  "pizza_name": "The Pepperoni Pizza",
+  "month": "1",
+  "total": "239"
+}, {
+  "pizza_name": "The Pepperoni Pizza",
+  "month": "2",
+  "total": "205"
+}, {
+  "pizza_name": "The Barbecue Chicken Pizza",
+  "month": "3",
+  "total": "231"
+}, {
+  "pizza_name": "The Hawaiian Pizza",
+  "month": "4",
+  "total": "219"
+}, {
+  "pizza_name": "The Pepperoni Pizza",
+  "month": "5",
+  "total": "241"
+}, {
+  "pizza_name": "The California Chicken Pizza",
+  "month": "6",
+  "total": "222"
+}, {
+  "pizza_name": "The Classic Deluxe Pizza",
+  "month": "7",
+  "total": "227"
+}, {
+  "pizza_name": "The California Chicken Pizza",
+  "month": "8",
+  "total": "231"
+}, {
+  "pizza_name": "The Classic Deluxe Pizza",
+  "month": "9",
+  "total": "209"
+}, {
+  "pizza_name": "The Pepperoni Pizza",
+  "month": "10",
+  "total": "199"
+}, {
+  "pizza_name": "The Hawaiian Pizza",
+  "month": "11",
+  "total": "227"
+}, {
+  "pizza_name": "The Hawaiian Pizza",
+  "month": "12",
+  "total": "209"
+}]

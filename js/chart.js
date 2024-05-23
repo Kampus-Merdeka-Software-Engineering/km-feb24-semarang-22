@@ -11,18 +11,57 @@ let month;
 
 selectElement.addEventListener("change", (e) =>{
     month = e.target.value;
-    fetchJsonBusyTime(month);
-    fetchTopPizzaChart(month);
-    fetchTopPizzaCategory(month);
-    fetchTopPizzaSize(month);
+    if (month > '0'){
+        fetchJsonBusyTime(month);
+        fetchTopPizzaChart(month);
+        fetchTopPizzaCategory(month);
+        fetchTopPizzaSize(month);
+        fetchsummaryData(month);
+        fetchTrending(month);
+        document.getElementById('current-season').textContent = getSeason(month);
+    } else if (month === '0') {
+        fetch_all();
+        fetchTrending(month);
+        document.getElementById('current-season').textContent = " ";
+    }
 })
 
-fetch("/json/pembelian shift perbulan.json")
+function fetch_all(){
+    fetch("/json/pembelian shift perbulan.json")
     .then(response => response.json())
     .then(data => {
         jsonData1 = data;
         createBusyTimeChart(jsonData1);
     });
+
+    fetch("/json/Top5PizzaNew.json")
+    .then(response => response.json())
+    .then(data => {
+        jsonData2 = data;
+        createTopPizzaChart(jsonData2);
+    });
+
+    fetch("/json/jenisPizzaPerbulan.json")
+    .then(response => response.json())
+    .then(data => {
+        jsonData3 = data;
+        createTopPizzaCategory(jsonData3);
+    });
+
+    fetch("/json/sizePizzaPerbulan.json")
+    .then(response => response.json())
+    .then(data => {
+        jsonData4 = data;
+        createTopPizzaSize(jsonData4);
+    });
+
+    fetch("/json/Penjualan All Pizza Perbulan.json")
+    .then(response => response.json())
+    .then(data => {
+        jsonData6 = data;
+        summaryData(jsonData6);
+    });
+}
 
 function fetchJsonBusyTime(month=""){
     fetch("/json/pembelian shift perbulan.json")
@@ -133,13 +172,6 @@ function createBusyTimeChart(data) {
 //     });
 // }
 
-    fetch("/json/Top5PizzaNew.json")
-    .then(response => response.json())
-    .then(data => {
-        jsonData2 = data;
-        createTopPizzaChart(jsonData2);
-    });
-
     function fetchTopPizzaChart(month=""){
         fetch("/json/Top5PizzaNew.json")
         .then(response => response.json())
@@ -207,13 +239,6 @@ function createTopPizzaChart(data) {
     });
 }
 
-fetch("/json/jenisPizzaPerbulan.json")
-    .then(response => response.json())
-    .then(data => {
-        jsonData3 = data;
-        createTopPizzaCategory(jsonData3);
-    });
-
     function fetchTopPizzaCategory(month=""){
         fetch("/json/jenisPizzaPerbulan.json")
         .then(response => response.json())
@@ -279,13 +304,6 @@ function createTopPizzaCategory(data) {
         }
     });
 }
-
-fetch("/json/sizePizzaPerbulan.json")
-    .then(response => response.json())
-    .then(data => {
-        jsonData4 = data;
-        createTopPizzaSize(jsonData4);
-    });
 
     function fetchTopPizzaSize(month=""){
         fetch("/json/sizePizzaPerbulan.json")
@@ -411,60 +429,46 @@ myChart5 = new Chart(ctx5, {
 }
 
 // TRENDING TABLE
-function fetchDataAndCreateTable() {
-    selectElement.addEventListener("change", (e) =>{
-        month = e.target.value;
-        fetchTrending(month)
-    })
-
     function fetchTrending(month=""){
         fetch("/json/trending.json")
         .then(response => response.json())
         .then(data => {
-            const filteredData = data.filter(item => {
-                var data = parseInt(item.month);
-                if (month >= 3 && month <= 5) { // Musim Semi (Maret hingga Mei)
-                    return data >= 3 && data <= 5;
-                } else if (month >= 6 && month <= 8) { // Musim Panas (Juni hingga Agustus)
-                    return data >= 6 && data <= 8;
-                } else if (month >= 9 && month <= 11) { // Musim Gugur (September hingga November)
-                    return data >= 9 && data <= 11;
-                } else { // Musim Dingin (Desember hingga Februari)
-                    return data >= 12 || data <= 2;
-                }
-            });
-
-            // Mengurutkan data berdasarkan total secara menurun (dari besar ke kecil)
-            filteredData.sort((a, b) => b.total - a.total);
-
-            // Buat tabel HTML dan masukkan data yang difilter ke dalamnya
-            const tableBody = document.getElementById("pizza-table-body");
+            if (month > '0'){
+                const filteredData = data.filter(item => {
+                    var data = parseInt(item.month);
+                    if (month >= 3 && month <= 5) { // Musim Semi (Maret hingga Mei)
+                        return data >= 3 && data <= 5;
+                    } else if (month >= 6 && month <= 8) { // Musim Panas (Juni hingga Agustus)
+                        return data >= 6 && data <= 8;
+                    } else if (month >= 9 && month <= 11) { // Musim Gugur (September hingga November)
+                        return data >= 9 && data <= 11;
+                    } else { // Musim Dingin (Desember hingga Februari)
+                        return data >= 12 || data <= 2;
+                    }
+                });
+    
+                // Mengurutkan data berdasarkan total secara menurun (dari besar ke kecil)
+                filteredData.sort((a, b) => b.total - a.total);
+    
+                // Buat tabel HTML dan masukkan data yang difilter ke dalamnya
+                const tableBody = document.getElementById("pizza-table-body");
+                    tableBody.innerHTML = "";
+                filteredData.forEach(item => {
+                    var row = document.createElement("tr");
+                    var nameCell = document.createElement("td");
+                    nameCell.textContent = item.pizza_name;
+                    var totalCell = document.createElement("td");
+                    totalCell.textContent = item.total;
+                    row.appendChild(nameCell);
+                    row.appendChild(totalCell);
+                    tableBody.appendChild(row);
+                });
+            } else if (month === '0'){
+                const tableBody = document.getElementById("pizza-table-body");
                 tableBody.innerHTML = "";
-            filteredData.forEach(item => {
-                var row = document.createElement("tr");
-                var nameCell = document.createElement("td");
-                nameCell.textContent = item.pizza_name;
-                var totalCell = document.createElement("td");
-                totalCell.textContent = item.total;
-                row.appendChild(nameCell);
-                row.appendChild(totalCell);
-                tableBody.appendChild(row);
-            });
+            }
         });
     }
-}
-
-fetch("/json/Penjualan All Pizza Perbulan.json")
-    .then(response => response.json())
-    .then(data => {
-        jsonData6 = data;
-        summaryData(jsonData6);
-    });
-
-    selectElement.addEventListener("change", (e) =>{
-        month = e.target.value;
-        fetchsummaryData(month)
-    })
 
     function fetchsummaryData(month=""){
         fetch("/json/Penjualan All Pizza Perbulan.json")
@@ -477,10 +481,6 @@ fetch("/json/Penjualan All Pizza Perbulan.json")
 
 
 function summaryData(data) {
-    if (!Array.isArray(data)) {
-        console.error("Data is not an array:", data);
-        return;
-    }
         const aggregatedData = data.reduce((acc, current) => {
             acc.total += parseFloat(current.total);
             acc.total_quantity += parseInt(current.total_quantity);
@@ -500,3 +500,5 @@ function summaryData(data) {
         totalElement.textContent = "$" + result[0].total;
         totalQuantityElement.textContent = result[0].total_quantity;
 }
+
+fetch_all();

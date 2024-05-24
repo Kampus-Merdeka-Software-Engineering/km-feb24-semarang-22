@@ -6,8 +6,10 @@ let ctx5 = document.getElementById('TotalSalesYear').getContext('2d');
 let myChart1, myChart2, myChart3, myChart4, myChart5;
 
 const selectElement = document.getElementById('month-select');
+const sortElement = document.getElementById('sort');
 
 let month;
+let sort;
 
 selectElement.addEventListener("change", (e) =>{
     month = e.target.value;
@@ -126,6 +128,20 @@ function createBusyTimeChart(data) {
             maintainAspectRatio: false,
         }
     });
+
+    sortElement.addEventListener("change", (e) =>{
+        sort = e.target.value;
+        if (sort === 'asc'){
+            aggregatedData.sort((a, b) => a.pizza_terjual - b.pizza_terjual);
+        } else {
+            aggregatedData.sort((a, b) => b.pizza_terjual - a.pizza_terjual);
+        }
+
+        // Update the chart with sorted data
+        myChart1.data.labels = aggregatedData.map(item => item.shift_waktu);
+        myChart1.data.datasets[0].data = aggregatedData.map(item => item.pizza_terjual);
+        myChart1.update();
+        });
 }
 
 // fetch("/json/BusyTime.json")
@@ -205,7 +221,7 @@ function createTopPizzaChart(data) {
       }, []);
 
       aggregatedData.sort((a, b) => b.TotalPurchases - a.TotalPurchases);
-      const top5Data = aggregatedData.slice(0, 5);
+      let top5Data = aggregatedData.slice(0, 5);
 
     myChart2 = new Chart(ctx2, {
         type: 'bar',
@@ -237,6 +253,22 @@ function createTopPizzaChart(data) {
             maintainAspectRatio: false,
         }
     });
+
+    sortElement.addEventListener("change", (e) =>{
+        sort = e.target.value;
+        if (sort === 'asc'){
+            aggregatedData.sort((a, b) => a.TotalPurchases - b.TotalPurchases);
+            top5Data = aggregatedData.slice(0, 5);
+        } else {
+            aggregatedData.sort((a, b) => b.TotalPurchases - a.TotalPurchases);
+            top5Data = aggregatedData.slice(0, 5);
+        }
+
+        // Update the chart with sorted data
+        myChart2.data.labels = top5Data.map(item => item.Name);
+        myChart2.data.datasets[0].data = top5Data.map(item => item.TotalPurchases);
+        myChart2.update();
+        });
 }
 
     function fetchTopPizzaCategory(month=""){
@@ -369,6 +401,20 @@ function createTopPizzaSize(data) {
             maintainAspectRatio: false,
         },
     });
+
+    sortElement.addEventListener("change", (e) =>{
+        sort = e.target.value;
+        if (sort === 'asc'){
+            aggregatedData.sort((a, b) => a.jumlah_total_pizza_terjual - b.jumlah_total_pizza_terjual);
+        } else {
+            aggregatedData.sort((a, b) => b.jumlah_total_pizza_terjual - a.jumlah_total_pizza_terjual);
+        }
+
+        // Update the chart with sorted data
+        myChart4.data.labels = aggregatedData.map(item => item.size);
+        myChart4.data.datasets[0].data = aggregatedData.map(item => item.jumlah_total_pizza_terjual);
+        myChart4.update();
+        });
 }
 
 fetch("/json/Penjualan All Pizza Perbulan.json")

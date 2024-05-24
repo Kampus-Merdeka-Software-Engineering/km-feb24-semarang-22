@@ -381,9 +381,17 @@ body{
             height: max-content;
             border-radius: 100%;
         }
-        .team-container-child2 a{
+        .team-link a{
             color: gray;
+            transition: 0.5s;
+            font-size: 18px;
         }
+
+        .team-link a:hover {
+            color: black;
+            cursor: pointer;
+        }
+
         .team-container-child2 p{
             font-weight: bold;
         }

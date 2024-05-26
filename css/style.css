@@ -75,7 +75,7 @@ body{
         z-index: 2;
         top: 0;
         left: 0;
-        background-color: #332e2c;
+        background-color: #8E2323;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
@@ -110,8 +110,12 @@ body{
         display: flex;
         width: 100px;
         margin: 0 auto;
-        margin-bottom: 25px;
-        padding: 15px;
+        }
+
+        .sidebar p{
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
         }
 
         .time{
@@ -121,7 +125,7 @@ body{
         .header{
             display: flex;
             justify-content: space-between;
-            background-color: #332e2c;
+            background-color: #8E2323;
             padding: 15px;
             color: white;
             position: fixed;
@@ -134,7 +138,7 @@ body{
         .header-text button{
             border: none;
             color: white;
-            background-color: #332e2c;
+            background-color: #8E2323;
             transition: 0.3s;
             font-size: 20px;
         }
@@ -161,12 +165,20 @@ body{
 
         /*dashboard*/
         .dashboard-base{
-            padding: 15px;
+            margin-top: 70px;
+            display: flex;
         }
 
         .dashboard-desc{
             text-align: center;
             margin-top: 75px;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .dashboard-parent-content{
+            width: full;
+            margin: 0 auto;
         }
 
         .dashboard-content{
@@ -181,27 +193,27 @@ body{
         .dashboard-summary-container{
             position: relative;
             padding: 10px;
-            width: 250px;
+            width: 200px;
             height: auto;
             border-radius: 10px;
         }
 
         .dashboard-summary-container img{
-            width: 250px;
-            height: 150px;
+            width: 200px;
+            height: 100px;
             opacity: 0.4;
             border-radius: 10px;
         }
 
         .dashboard-summary-isi{
             position: absolute;
-            top: 28px;
-            left: 90px;
+            top: 15px;
+            left: 70px;
         }
 
         .dashboard-summary-isi h2{
             font-weight: 800;
-            font-size: 26px;
+            font-size: 20px;
         }
 
         .dashboard-summary-isi span{
@@ -211,12 +223,19 @@ body{
         .dashboard-stat-base{
             display: flex;
             justify-content: center;
+            padding: 15px;
         }
 
         .dashboard-filter{
             display: flex;
             justify-content: center;
-            margin-top: 40px;
+            padding: 10px;
+            margin-top: 30px;
+        }
+
+        .pizza{
+            width: 300px;
+            margin-top: 80px;
         }
 
         .dashboard-filter>span{
@@ -289,16 +308,13 @@ body{
 
         .dashboard-stat{
             display: grid;
-            grid-template-columns: 400px 400px;
-            gap: 10px;
-        }
-
-        .dashboard-stat img{
-            width: 400px;
+            grid-template-columns: 300px 300px 300px;
+            gap: 15px;
         }
 
         .dashboard-stat p{
             font-weight: 700;
+            font-size: 14px;
         }
 
         .dashboard-trending{
@@ -312,13 +328,17 @@ body{
         }
 
         .chart{
-            padding: 20px;
+            padding: 5px;
             background: white;
         }
 
         .chart > #current-season{
             margin: 20px;
             margin-left: 40px;
+        }
+
+        #pizza-table{
+            font-size: 12px;
         }
 
         @media only screen and (max-width: 620px) {

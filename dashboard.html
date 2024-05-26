@@ -24,12 +24,7 @@
     <div id="main-dashboard">
         <section>
             <div class="dashboard-base">
-                <div class="dashboard-desc">
-                    <h1>Dashboard</h1>
-                    <h4>Welcome to Pizza Place Dashboard!</h4>
-                </div>
-                <div class="dashboard-content">
-                    <p>Summary</p>
+                <div>
                     <div class="dashboard-filter">
                         <span>Filter</span>
                         <select id="month-select">
@@ -55,90 +50,85 @@
                             <option value="asc">Ascending</option>
                         </select>
                     </div>
-                    <br>
-                    <div class="dashboard-summary">
-                        <div class="dashboard-summary-container">
-                            <img src="./img/pizza.jpg" alt="">
-                            <div class="dashboard-summary-isi">
-                                <h2 id="total-quantity-value"></h2>
-                                <span>Pizza Sold</span>
-                            </div>
-                        </div>
-                        <div class="dashboard-summary-container">
-                            <img src="./img/income.jpg" alt="">
-                            <div class="dashboard-summary-isi">
-                                <h2 id="total-value"></h2>
-                                <span>Income</span>
-                            </div>
-                        </div>
-                        <div class="dashboard-summary-container">
-                            <img src="./img/profit.jpg" alt="">
-                            <div class="dashboard-summary-isi">
-                                <h2>$500</h2>
-                                <span>Profit</span>
-                            </div>
-                        </div>
+                    <div class="container-pizza">
+                        <img class="pizza" src="./img/Tak berjudul108_20240526144933.png" alt="">
                     </div>
                 </div>
-            </div>
-        </section>
-        <section>
-            <div class="dashboard-stat-base">
-                <div class="dashboard-stat">
-                    <div class="chart">
-                        <p>Total Sales per Year</p>
-                        <div class="chartCard">
-                            <div class="chartBox">
-                              <canvas id="TotalSalesYear"></canvas>
+                <div class="dashboard-parent-content">
+                    <div class="dashboard-content">
+                        <div class="dashboard-summary">
+                            <div class="dashboard-summary-container">
+                                <img src="./img/pizza.jpg" alt="">
+                                <div class="dashboard-summary-isi">
+                                    <h2 id="total-quantity-value"></h2>
+                                    <span>Pizza Sold</span>
+                                </div>
                             </div>
-                          </div>
-                    </div>
-                    <div class="chart">
-                        <p>Trending Pizza Now 🔥</p>
-                        <div id="current-season"></div>
-                        <table id="pizza-table">
-                            <thead>
-                              <tr>
-                                <th>Pizza Name</th>
-                                <th>Total</th>
-                              </tr>
-                            </thead>
-                            <tbody id="pizza-table-body" style="text-align: center;">
-                            </tbody>
-                          </table>
-                    </div>
-                    <div class="chart">
-                        <p>Busy Time</p>
-                        <div class="chartCard">
-                            <div class="chartBox">
-                              <canvas id="BusyTimeChart"></canvas>
+                            <div class="dashboard-summary-container">
+                                <img src="./img/income.jpg" alt="">
+                                <div class="dashboard-summary-isi">
+                                    <h2 id="total-value"></h2>
+                                    <span>Income</span>
+                                </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
-                    <div class="chart">
-                        <p>Top 5 Best Selling Pizzas</p>
-                        <div class="chartCard">
-                            <div class="chartBox">
-                              <canvas id="TopPizzaChart"></canvas>
+                    <section>
+                        <div class="dashboard-stat-base">
+                            <div class="dashboard-stat">
+                                <div class="chart">
+                                    <p>Total Sales per Year</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TotalSalesYear" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Busy Time</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="BusyTimeChart" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Trending Pizza (Seasonal)</p>
+                                    <div id="alert-trending" style="color: red;">Please Choose Month First to show</div>
+                                    <div id="current-season"></div>
+                                    <table id="pizza-table">
+                                        <thead id="pizza-table-head" style="text-align: between;"></thead>
+                                        <tbody id="pizza-table-body" style="text-align: center;">
+                                        </tbody>
+                                      </table>
+                                </div>
+                                <div class="chart">
+                                    <p>Top 5 Best Selling Pizzas</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TopPizzaChart" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Best Pizza Category</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TopPizzaCategory" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Top Pizza Size</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TopPizzaSize" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
                             </div>
-                          </div>
-                    </div>
-                    <div class="chart">
-                        <p>Best Pizza Category</p>
-                        <div class="chartCard">
-                            <div class="chartBox">
-                              <canvas id="TopPizzaCategory"></canvas>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="chart">
-                        <p>Top Pizza Size</p>
-                        <div class="chartCard">
-                            <div class="chartBox">
-                              <canvas id="TopPizzaSize"></canvas>
-                            </div>
-                          </div>
-                    </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>

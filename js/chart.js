@@ -107,11 +107,11 @@ function createBusyTimeChart(data) {
                 data: aggregatedData.map(item => item.pizza_terjual),
                 borderWidth: 1,
                 backgroundColor: [
-                    '#332e2c',
-                    '#3d493e',
-                    '#4a5540',
-                    '#556038',
-                    '#616d33',
+                    '#596940',
+                    '#748B46',
+                    '#90A854',
+                    '#ABCC8F',
+                    '#BBE5A7',
                 ],
                 hoverBackgroundColor: "#d4ba88",
                 hoverBorderColor: "#663300",
@@ -232,11 +232,11 @@ function createTopPizzaChart(data) {
                 data: top5Data.map(row => row.TotalPurchases),
                 borderWidth: 1,
                 backgroundColor: [
-                    '#332e2c',
-                    '#3d493e',
-                    '#4a5540',
-                    '#556038',
-                    '#616d33',
+                    '#596940',
+                    '#748B46',
+                    '#90A854',
+                    '#ABCC8F',
+                    '#BBE5A7',
                 ],
                 hoverBackgroundColor: "#d4ba88",
                 hoverBorderColor: "#663300",
@@ -312,11 +312,11 @@ function createTopPizzaCategory(data) {
                 data: aggregatedData.map(row => row.total),
                 borderWidth: 1,
                 backgroundColor: [
-                    '#332e2c',
-                    '#3d493e',
-                    '#4a5540',
-                    '#556038',
-                    '#616d33',
+                    '#596940',
+                    '#748B46',
+                    '#90A854',
+                    '#ABCC8F',
+                    '#BBE5A7',
                 ],
                 hoverBackgroundColor: "#d4ba88",
                 hoverBorderColor: "#663300",
@@ -380,11 +380,11 @@ function createTopPizzaSize(data) {
                 data: aggregatedData.map(row => row.jumlah_total_pizza_terjual),
                 borderWidth: 1,
                 backgroundColor: [
-                    '#332e2c',
-                    '#3d493e',
-                    '#4a5540',
-                    '#556038',
-                    '#616d33',
+                    '#596940',
+                    '#748B46',
+                    '#90A854',
+                    '#ABCC8F',
+                    '#BBE5A7',
                 ],
                 hoverBackgroundColor: "#d4ba88",
                 hoverBorderColor: "#663300",
@@ -429,13 +429,11 @@ fetch("/json/Penjualan All Pizza Perbulan.json")
 });
 
 function createTotalSalesYear(data) {
-// Mengurutkan data berdasarkan bulan
+    if (myChart5) {
+        myChart5.destroy(); // Destroy existing chart before creating a new one
+    }
+    // Mengurutkan data berdasarkan bulan
 data.sort((a, b) => a.month - b.month);
-
-// Ubah tipe data month menjadi integer
-data.forEach(item => {
-    item.month = parseInt(item.month);
-});
 
 myChart5 = new Chart(ctx5, {
     type: 'line',
@@ -445,8 +443,8 @@ myChart5 = new Chart(ctx5, {
             label: 'Total Sales Per Year',
             data: data.map(row => row.total), // Gunakan total sebagai data
             borderWidth: 2,
-            backgroundColor: '#332e2c', // Warna latar belakang
-            borderColor: '#616d33', // Warna garis
+            backgroundColor: '#90A854', // Warna latar belakang
+            borderColor: '#748B46', // Warna garis
             fill: false, // Tidak mengisi area di bawah garis
             lineTension: 0.4,
             pointRadius: 5
@@ -454,13 +452,6 @@ myChart5 = new Chart(ctx5, {
     },
     options: {
         scales: {
-            x: {
-                type: 'linear', // Gunakan skala linear untuk sumbu x
-                ticks: {
-                    stepSize: 1, // Langkah interval
-                    precision: 0 // Atur presisi agar tidak ada desimal
-                }
-            },
             y: {
                 suggestedMin: 60000, // Mulai sumbu y dari 60.000
                 ticks: {
@@ -472,6 +463,23 @@ myChart5 = new Chart(ctx5, {
         maintainAspectRatio: false
     }
 });
+
+sortElement.addEventListener("change", (e) => {
+    sort = e.target.value;
+
+    // Sort data based on selected option
+    if (sort === 'asc') {
+        data.sort((a, b) => a.total - b.total);
+    } else {
+        data.sort((a, b) => b.total - a.total);
+    }
+
+    // Update chart with sorted data
+    myChart5.data.labels = data.map(row => row.month);
+    myChart5.data.datasets[0].data = data.map(row => row.total);
+    console.log(data)
+    myChart5.update();
+});
 }
 
 // TRENDING TABLE
@@ -481,6 +489,7 @@ myChart5 = new Chart(ctx5, {
         .then(data => {
             if (month > '0'){
                 const filteredData = data.filter(item => {
+                    document.getElementById("alert-trending").textContent = "";
                     var data = parseInt(item.month);
                     if (month >= 3 && month <= 5) { // Musim Semi (Maret hingga Mei)
                         return data >= 3 && data <= 5;
@@ -495,23 +504,46 @@ myChart5 = new Chart(ctx5, {
     
                 // Mengurutkan data berdasarkan total secara menurun (dari besar ke kecil)
                 filteredData.sort((a, b) => b.total - a.total);
+
+                const tableHead = document.getElementById('pizza-table-head');
+                tableHead.innerHTML = ''; // Kosongkan thead jika sudah ada isinya sebelumnya
+            
+                const headerRow = document.createElement('tr');
+                const headers = ['Pizza Name', 'Total', 'Month'];
+            
+                headers.forEach(headerText => {
+                    const header = document.createElement('th');
+                    header.textContent = headerText;
+                    headerRow.appendChild(header);
+                });
+            
+                tableHead.appendChild(headerRow);
     
                 // Buat tabel HTML dan masukkan data yang difilter ke dalamnya
                 const tableBody = document.getElementById("pizza-table-body");
                     tableBody.innerHTML = "";
+
                 filteredData.forEach(item => {
                     var row = document.createElement("tr");
                     var nameCell = document.createElement("td");
                     nameCell.textContent = item.pizza_name;
                     var totalCell = document.createElement("td");
                     totalCell.textContent = item.total;
+                    var monthCell = document.createElement("td");
+                    monthCell.textContent = item.month;
                     row.appendChild(nameCell);
                     row.appendChild(totalCell);
+                    row.appendChild(monthCell);
                     tableBody.appendChild(row);
                 });
             } else if (month === '0'){
+                const alertSeason = document.getElementById("alert-trending");
+                alertSeason.textContent = "Please Choose Month First to show";
+                alertSeason.style.color = "red";
                 const tableBody = document.getElementById("pizza-table-body");
                 tableBody.innerHTML = "";
+                const tableHead = document.getElementById('pizza-table-head');
+                tableHead.innerHTML = "";
             }
         });
     }
@@ -546,5 +578,7 @@ function summaryData(data) {
         totalElement.textContent = "$" + result[0].total;
         totalQuantityElement.textContent = result[0].total_quantity;
 }
+
+
 
 fetch_all();

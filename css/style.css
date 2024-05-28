@@ -251,12 +251,7 @@ body{
         }
 
         .dashboard-filter>span{
-            width: 70px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        
+            margin-top: 15px;
         }
         
         .dashboard-filter>select{
@@ -353,26 +348,57 @@ body{
             font-size: 12px;
         }
 
+        .dashboard-sort-filter{
+            display: block;
+        }
+
         @media only screen and (max-width: 620px) {
-        /* For mobile phones: */
-        .dashboard-summary{
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .dashboard-stat{
-            display: grid;
-            grid-template-columns: auto;
-            gap: 30px;
-        }
-        .dashboard-stat-base{
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .dashboard-stat img{
-            width: 300px;
-        }
-        }
+            /* For mobile phones: */
+            .dashboard-sort-filter{
+                display: flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .dashboard-filter>select{
+                font-size: 10px;
+                width: 100px;
+                height: 30px;
+                border-radius: 20px;
+                padding: 5px;
+            }
+
+            .dashboard-filter>span{
+                font-size: 14px;
+                margin-top: 5px;
+            }
+
+            .dashboard-base{
+                display: block;
+            }
+    
+            .pizza{
+                    display: none;
+            }
+    
+            .dashboard-summary{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .dashboard-stat{
+                display: grid;
+                grid-template-columns: 300px;
+                gap: 30px;
+            }
+            .dashboard-stat-base{
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .dashboard-stat img{
+                width: 300px;
+            }
+            }
 
         /*team*/
         .team-text{

@@ -106,15 +106,14 @@ function createBusyTimeChart(data) {
                 label: 'Time',
                 data: aggregatedData.map(item => item.pizza_terjual),
                 borderWidth: 1,
+                borderColor: '#8E2323',
                 backgroundColor: [
-                    '#596940',
-                    '#748B46',
-                    '#90A854',
-                    '#ABCC8F',
-                    '#BBE5A7',
+                    'rgba(142, 35, 35, 0.8)',
+                    'rgba(215, 83, 50, 0.8)',
+                    'rgba(242, 134, 107, 0.8)',
+                    'rgba(255, 190, 174, 0.8)',
+                    'rgba(255, 219, 184, 0.8)',
                 ],
-                hoverBackgroundColor: "#d4ba88",
-                hoverBorderColor: "#663300",
             }]
         },
         options: {
@@ -126,6 +125,11 @@ function createBusyTimeChart(data) {
             },
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false // Sembunyikan legend
+                }
+            }
         }
     });
 
@@ -171,8 +175,6 @@ function createBusyTimeChart(data) {
 //                     '#556038',
 //                     '#616d33',
 //                 ],
-//                 hoverBackgroundColor: "#d4ba88",
-//                 hoverBorderColor: "#663300",
 //             }]
 //         },
 //         options: {
@@ -231,15 +233,14 @@ function createTopPizzaChart(data) {
                 label: 'Total Pizza Sold',
                 data: top5Data.map(row => row.TotalPurchases),
                 borderWidth: 1,
+                borderColor: '#8E2323',
                 backgroundColor: [
-                    '#596940',
-                    '#748B46',
-                    '#90A854',
-                    '#ABCC8F',
-                    '#BBE5A7',
+                    'rgba(142, 35, 35, 0.8)',
+                    'rgba(215, 83, 50, 0.8)',
+                    'rgba(242, 134, 107, 0.8)',
+                    'rgba(255, 190, 174, 0.8)',
+                    'rgba(255, 219, 184, 0.8)',
                 ],
-                hoverBackgroundColor: "#d4ba88",
-                hoverBorderColor: "#663300",
             }]
         },
         options: {
@@ -251,6 +252,11 @@ function createTopPizzaChart(data) {
             },
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false // Sembunyikan legend
+                }
+            }
         }
     });
 
@@ -311,15 +317,14 @@ function createTopPizzaCategory(data) {
                 label: 'Total Pizza Sold',
                 data: aggregatedData.map(row => row.total),
                 borderWidth: 1,
+                borderColor: '#8E2323',
                 backgroundColor: [
-                    '#596940',
-                    '#748B46',
-                    '#90A854',
-                    '#ABCC8F',
-                    '#BBE5A7',
+                    'rgba(142, 35, 35, 0.8)',
+                    'rgba(215, 83, 50, 0.8)',
+                    'rgba(242, 134, 107, 0.8)',
+                    'rgba(255, 190, 174, 0.8)',
+                    'rgba(255, 219, 184, 0.8)',
                 ],
-                hoverBackgroundColor: "#d4ba88",
-                hoverBorderColor: "#663300",
             }]
         },
         options: {
@@ -379,15 +384,14 @@ function createTopPizzaSize(data) {
                 label: 'Total Pizza Sold',
                 data: aggregatedData.map(row => row.jumlah_total_pizza_terjual),
                 borderWidth: 1,
+                borderColor: '#8E2323',
                 backgroundColor: [
-                    '#596940',
-                    '#748B46',
-                    '#90A854',
-                    '#ABCC8F',
-                    '#BBE5A7',
+                    'rgba(142, 35, 35, 0.8)',
+                    'rgba(215, 83, 50, 0.8)',
+                    'rgba(242, 134, 107, 0.8)',
+                    'rgba(255, 190, 174, 0.8)',
+                    'rgba(255, 219, 184, 0.8)',
                 ],
-                hoverBackgroundColor: "#d4ba88",
-                hoverBorderColor: "#663300",
             }]
         },
         options: {
@@ -399,6 +403,11 @@ function createTopPizzaSize(data) {
             },
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false // Sembunyikan legend
+                }
+            }
         },
     });
 
@@ -440,14 +449,14 @@ myChart5 = new Chart(ctx5, {
     data: {
         labels: data.map(row => row.month), // Gunakan bulan sebagai label
         datasets: [{
-            label: 'Total Sales Per Year',
             data: data.map(row => row.total), // Gunakan total sebagai data
-            borderWidth: 2,
-            backgroundColor: '#90A854', // Warna latar belakang
-            borderColor: '#748B46', // Warna garis
-            fill: false, // Tidak mengisi area di bawah garis
+            borderWidth: 1,
+            backgroundColor: 'rgba(242, 134, 107, 0.5)',
+            pointBackgroundColor: '#8E2323', // Warna latar belakang
+            borderColor: '#8E2323', // Warna garis
+            fill: true, // Tidak mengisi area di bawah garis
             lineTension: 0.4,
-            pointRadius: 5
+            pointRadius: 3
         }]
     },
     options: {
@@ -460,7 +469,12 @@ myChart5 = new Chart(ctx5, {
             }
         },
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false // Sembunyikan legend
+            }
+        }
     }
 });
 

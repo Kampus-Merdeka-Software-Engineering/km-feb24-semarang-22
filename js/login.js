@@ -4,9 +4,9 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
     const password = document.getElementById('password').value;
 
     // Check if username and password match the predefined values
-    if (username !== 'ael') {
+    if (username !== 'team22') {
         showNotification('Wrong Username !');
-    } else if (password !== 'rhizn') {
+    } else if (password !== 'team22') {
         showNotification('Wrong Password !');
     } else {
         showNotification('Login Successful !');

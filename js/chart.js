@@ -148,48 +148,6 @@ function createBusyTimeChart(data) {
         });
 }
 
-// fetch("/json/BusyTime.json")
-//     .then(function (response) {
-//         if (response.status == 200) {
-//             return response.json();
-//         }
-//     })
-//     .then(function (data) {
-//         jsonData1 = data;
-//         createBusyTimeChart(jsonData1);
-//     });
-
-// function createBusyTimeChart(data) {
-//     myChart1 = new Chart(ctx1, {
-//         type: 'bar',
-//         data: {
-//             labels: data.map(row => row.TimeShift),
-//             datasets: [{
-//                 label: 'Time',
-//                 data: data.map(row => row.TotalPizzaSold),
-//                 borderWidth: 1,
-//                 backgroundColor: [
-//                     '#332e2c',
-//                     '#3d493e',
-//                     '#4a5540',
-//                     '#556038',
-//                     '#616d33',
-//                 ],
-//             }]
-//         },
-//         options: {
-//             indexAxis: 'y',
-//             scales: {
-//                 y: {
-//                     beginAtZero: true
-//                 }
-//             },   
-//             responsive: true,
-//             maintainAspectRatio: false,
-//         }
-//     });
-// }
-
     function fetchTopPizzaChart(month=""){
         fetch("/json/Top5PizzaNew.json")
         .then(response => response.json())

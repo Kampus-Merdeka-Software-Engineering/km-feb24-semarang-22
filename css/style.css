@@ -99,6 +99,7 @@ body{
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
+        box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
         }
 
         .sidebar a {
@@ -153,7 +154,6 @@ body{
             width: 100%;
             top: 0;
             font-size: 20px;
-            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
         }
 
         .header-text button{
@@ -207,14 +207,13 @@ body{
         }
 
         .dashboard-summary{
-            display: flex;
-            justify-content: center;
+            text-align: center;
         }
 
         .dashboard-summary-container{
             background-color: #8E2323;
             padding: 10px;
-            width: 200px;
+            width: 150px;
             height: auto;
             border-radius: 10px;
             margin: 10px;
@@ -247,31 +246,51 @@ body{
         }
 
         .dashboard-filter{
-            padding: 10px;
-            margin-top: 30px;
+            padding: 5px;
+            margin-top: 10px;
         }
 
-        .pizza{
-            width: 300px;
-            margin-top: 105px;
-        }
-
-        .dashboard-filter>span{
-            margin-top: 15px;
+        .dashboard-side-menu{
+            font-weight: 500;
+            font-size: 28px;
+            padding-left: 30px;
+            width: 200px;
         }
         
         .dashboard-filter>select{
+            background-color: white;
             width: 150px;
-            height: 50px;
-            margin-left: 15px;
-            border-radius: 20px;
+            margin-left: 20px;
+            border-radius: 10px;
             padding: 10px;
+            text-align: center;
+            border: none;
+            box-shadow: 0px 5px 5px rgb(184, 184, 184);
+            -moz-appearance: none;
+            -webkit-appearance: none;
         }
-        
+
+        .dashboard-filter>select::after{
+            width: 150px;
+            margin-left: 20px;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            background-color: #8E2323;
+            color: white;
+            box-shadow: 0px 5px 5px rgb(184, 184, 184);
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .dashboard-filter select::-ms-expand{
+            display: none;
+        }
 
         .dashboard-stat{
             display: grid;
-            grid-template-columns: 320px 320px 320px;
+            grid-template-columns: 350px 350px 350px;
             gap: 15px;
         }
 
@@ -281,8 +300,13 @@ body{
         }
 
         .dashboard-trending{
-            border: 1px solid black;
             padding: 10px;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 4px;
         }
 
         #current-date{
@@ -311,14 +335,19 @@ body{
         .dashboard-sort-filter{
             margin-left: 20px;
             border-radius: 10px;
-            display: block;
+            display: flex;
+            justify-content: center;
         }
 
         @media only screen and (max-width: 620px) {
             /* For mobile phones: */
-            .dashboard-filter{
-                display: flex;
-                justify-content: center;
+            .dashboard-side-menu{
+                margin: 0 auto;
+                width: 100%;
+                font-weight: 500;
+                font-size: 20px;
+                text-align: center;
+                padding: 0px;
             }
 
             .dashboard-sort-filter{
@@ -330,12 +359,19 @@ body{
                 flex-wrap: nowrap;
             }
 
-            .dashboard-filter>select{
+            .dashboard-filter select{
                 font-size: 10px;
                 width: 100px;
-                height: 30px;
-                border-radius: 20px;
-                padding: 5px;
+                height: 40px;
+                border-radius: 10px;
+                padding: 10px;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                text-align: center;
+            }
+
+            .dashboard-filter select::-ms-expand{
+                display: none;
             }
 
             .dashboard-filter>span{

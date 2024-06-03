@@ -1,0 +1,301 @@
+[{
+  "month": "1",
+  "Name": "The Pepperoni Pizza",
+  "total": "3001.25",
+  "TotalPurchases": "239"
+}, {
+  "month": "1",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3770.25",
+  "TotalPurchases": "211"
+}, {
+  "month": "1",
+  "Name": "The California Chicken Pizza",
+  "total": "3471.5",
+  "TotalPurchases": "202"
+}, {
+  "month": "1",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3657.25",
+  "TotalPurchases": "199"
+}, {
+  "month": "1",
+  "Name": "The Sicilian Pizza",
+  "total": "2987.75",
+  "TotalPurchases": "191"
+}, {
+  "month": "2",
+  "Name": "The Pepperoni Pizza",
+  "total": "2554.25",
+  "TotalPurchases": "205"
+}, {
+  "month": "2",
+  "Name": "The California Chicken Pizza",
+  "total": "3537.0",
+  "TotalPurchases": "204"
+}, {
+  "month": "2",
+  "Name": "The Hawaiian Pizza",
+  "total": "2633.0",
+  "TotalPurchases": "198"
+}, {
+  "month": "2",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3416.75",
+  "TotalPurchases": "193"
+}, {
+  "month": "2",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "2705.0",
+  "TotalPurchases": "173"
+}, {
+  "month": "3",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "4049.25",
+  "TotalPurchases": "231"
+}, {
+  "month": "3",
+  "Name": "The Hawaiian Pizza",
+  "total": "2878.5",
+  "TotalPurchases": "217"
+}, {
+  "month": "3",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3843.75",
+  "TotalPurchases": "213"
+}, {
+  "month": "3",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3168.0",
+  "TotalPurchases": "204"
+}, {
+  "month": "3",
+  "Name": "The California Chicken Pizza",
+  "total": "3457.5",
+  "TotalPurchases": "194"
+}, {
+  "month": "4",
+  "Name": "The Hawaiian Pizza",
+  "total": "2867.75",
+  "TotalPurchases": "219"
+}, {
+  "month": "4",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3342.5",
+  "TotalPurchases": "216"
+}, {
+  "month": "4",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3788.5",
+  "TotalPurchases": "214"
+}, {
+  "month": "4",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3686.0",
+  "TotalPurchases": "200"
+}, {
+  "month": "4",
+  "Name": "The California Chicken Pizza",
+  "total": "3092.0",
+  "TotalPurchases": "176"
+}, {
+  "month": "5",
+  "Name": "The Pepperoni Pizza",
+  "total": "2998.75",
+  "TotalPurchases": "241"
+}, {
+  "month": "5",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3953.5",
+  "TotalPurchases": "226"
+}, {
+  "month": "5",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3444.0",
+  "TotalPurchases": "218"
+}, {
+  "month": "5",
+  "Name": "The California Chicken Pizza",
+  "total": "3561.25",
+  "TotalPurchases": "199"
+}, {
+  "month": "5",
+  "Name": "The Hawaiian Pizza",
+  "total": "2688.0",
+  "TotalPurchases": "198"
+}, {
+  "month": "6",
+  "Name": "The California Chicken Pizza",
+  "total": "3870.5",
+  "TotalPurchases": "222"
+}, {
+  "month": "6",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3029.0",
+  "TotalPurchases": "197"
+}, {
+  "month": "6",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3377.5",
+  "TotalPurchases": "194"
+}, {
+  "month": "6",
+  "Name": "The Hawaiian Pizza",
+  "total": "2563.75",
+  "TotalPurchases": "189"
+}, {
+  "month": "6",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3505.0",
+  "TotalPurchases": "188"
+}, {
+  "month": "7",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3554.5",
+  "TotalPurchases": "227"
+}, {
+  "month": "7",
+  "Name": "The Pepperoni Pizza",
+  "total": "2819.25",
+  "TotalPurchases": "224"
+}, {
+  "month": "7",
+  "Name": "The Thai Chicken Pizza",
+  "total": "4073.75",
+  "TotalPurchases": "221"
+}, {
+  "month": "7",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3784.25",
+  "TotalPurchases": "219"
+}, {
+  "month": "7",
+  "Name": "The Hawaiian Pizza",
+  "total": "2620.25",
+  "TotalPurchases": "195"
+}, {
+  "month": "8",
+  "Name": "The California Chicken Pizza",
+  "total": "3977.25",
+  "TotalPurchases": "231"
+}, {
+  "month": "8",
+  "Name": "The Pepperoni Pizza",
+  "total": "2637.75",
+  "TotalPurchases": "213"
+}, {
+  "month": "8",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3187.0",
+  "TotalPurchases": "208"
+}, {
+  "month": "8",
+  "Name": "The Hawaiian Pizza",
+  "total": "2678.75",
+  "TotalPurchases": "201"
+}, {
+  "month": "8",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3300.25",
+  "TotalPurchases": "187"
+}, {
+  "month": "9",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3257.5",
+  "TotalPurchases": "209"
+}, {
+  "month": "9",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3736.25",
+  "TotalPurchases": "203"
+}, {
+  "month": "9",
+  "Name": "The Pepperoni Pizza",
+  "total": "2466.75",
+  "TotalPurchases": "198"
+}, {
+  "month": "9",
+  "Name": "The Hawaiian Pizza",
+  "total": "2616.25",
+  "TotalPurchases": "196"
+}, {
+  "month": "9",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3380.0",
+  "TotalPurchases": "192"
+}, {
+  "month": "10",
+  "Name": "The Pepperoni Pizza",
+  "total": "2471.0",
+  "TotalPurchases": "199"
+}, {
+  "month": "10",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3075.5",
+  "TotalPurchases": "196"
+}, {
+  "month": "10",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3503.25",
+  "TotalPurchases": "191"
+}, {
+  "month": "10",
+  "Name": "The Hawaiian Pizza",
+  "total": "2514.75",
+  "TotalPurchases": "188"
+}, {
+  "month": "10",
+  "Name": "The Four Cheese Pizza",
+  "total": "2870.3500000000035",
+  "TotalPurchases": "169"
+}, {
+  "month": "11",
+  "Name": "The Hawaiian Pizza",
+  "total": "2952.75",
+  "TotalPurchases": "227"
+}, {
+  "month": "11",
+  "Name": "The Barbecue Chicken Pizza",
+  "total": "3881.75",
+  "TotalPurchases": "221"
+}, {
+  "month": "11",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3379.5",
+  "TotalPurchases": "218"
+}, {
+  "month": "11",
+  "Name": "The California Chicken Pizza",
+  "total": "3692.75",
+  "TotalPurchases": "209"
+}, {
+  "month": "11",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3776.0",
+  "TotalPurchases": "208"
+}, {
+  "month": "12",
+  "Name": "The Hawaiian Pizza",
+  "total": "2816.75",
+  "TotalPurchases": "209"
+}, {
+  "month": "12",
+  "Name": "The California Chicken Pizza",
+  "total": "3575.25",
+  "TotalPurchases": "207"
+}, {
+  "month": "12",
+  "Name": "The Thai Chicken Pizza",
+  "total": "3813.0",
+  "TotalPurchases": "204"
+}, {
+  "month": "12",
+  "Name": "The Classic Deluxe Pizza",
+  "total": "3096.5",
+  "TotalPurchases": "197"
+}, {
+  "month": "12",
+  "Name": "The Pepperoni Pizza",
+  "total": "2293.0",
+  "TotalPurchases": "183"
+}]

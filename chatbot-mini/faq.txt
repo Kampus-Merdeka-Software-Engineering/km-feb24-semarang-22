@@ -1,0 +1,35 @@
+Q: Halo
+Q: siapa kamu?
+Q: nama kamu apa?
+A: Halo, saya adalah Pizza-chan~ asisten Pizza Place anda, apakah ada yang bisa saya bantu?
+
+Q: Bisakah anda jelaskan tentang chart / grafik total sales per year?
+Q: Jelaskan tentang grafik/chart total sales tahun ini?
+Q: Jelaskan chart / grafik total sales per year?
+Q: Jelaskan chart / grafik sales pizza tahun ini?
+A: Total sales untuk tahun ini naik dan turun perbulannya, sehingga tidak stabil dan sulit untuk diprediksi, maka ini menjadi masalah utama untuk toko pizza kita :(
+
+Q: Bisakah anda jelaskan tentang chart / grafik busy time?
+Q: Bisakah jelaskan chart / grafik jam sibuk?
+Q: Bisakah jelaskan chart / grafik busy time?
+Q: Busy time penjelasan?
+Q: Jam sibuk?
+A: Pizza terjual laris saat sore hari, kemungkinan dikarenakan jam kerja selesai pada waktu tersebut, dan waktu paling sedikit pembeli ialah malam hari, dikarenakan orang-orang sudah tidur nyenyak :D
+
+Q: Berapa total income setahun ini?
+Q: Income tahun ini?
+Q: Berapa total penjualan setahun ini?
+Q: total penjualan / total income?
+Q: Berapa pendapatan / penjualan tahun ini?
+Q: Pendapatan dan jumlah pizza terjual?
+A: Sekitar $817860 USD dengan jumlah pizza terjual sebanyak 49574 pcs
+
+Q: Jelaskan trending pizza di tiap musim tahun ini / seasonal?
+Q: Jelaskan tabel tranding pizza permusim / seasonal?
+Q: Apa trending pizza seasonal /  permusim tahun ini?
+A: Pizza trending macam-macam setiap musimnya tergantung suasana :D, anda bisa menanyakan lebih rinci mungkin untuk musim atau bulannya?
+
+Q: Jelaskan best kategori pizza?
+Q: Apa kategori yang diminati / disukai di tahun ini?
+Q: Kategori pizza apa yang banyak dibeli?
+A: Kategori yang paling banyak dibeli tahun ini adalah 'Classic', sepertinya pembeli lebih menyukai cita rasa yang tradisional ditambah harganya seimbang dengan yang didapat

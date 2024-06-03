@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/faf88445ba.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Dashboard | Pizza Place</title>
+    <script>
+        $(document).ready(function(){
+            // Gunakan metode .load() untuk memuat konten dari file HTML lain ke dalam div dengan id "content"
+            $("#content").load("navbar.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+    <div id="main-dashboard">
+            <div class="dashboard-base">
+                <div class="dashboard-side-menu">
+                    <p><span>Welcome to</span> <span>Semarang 22</span> Dashboard!</p>
+                    <div class="dashboard-summary">
+                        <div class="dashboard-summary-container">
+                            <i class="fa-solid fa-pizza-slice"></i>
+                            <div class="dashboard-summary-isi">
+                                <span id="total-quantity-value"></span>
+                                <p>Pizza Sold</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-summary-container">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <div class="dashboard-summary-isi">
+                                <span id="total-value"></span>
+                                <p>Income</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-parent-content">
+                    <div class="dashboard-content">
+                        <div class="dashboard-filter-container">
+                            <div class="dashboard-sort-filter">
+                                <div class="dashboard-filter">
+                                    <select id="month-select">
+                                        <option disabled selected value>Filter Month</option>
+                                        <option value="0">All</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                </div>
+                                <div class="dashboard-filter">
+                                    <select id="sort">
+                                        <option disabled selected value>Sort</option>
+                                        <option value="desc">Descending</option>
+                                        <option value="asc">Ascending</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section>
+                        <div class="dashboard-stat-base">
+                            <div class="dashboard-stat">
+                                <div class="chart">
+                                    <p>Total Sales per Year</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TotalSalesYear" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Busy Time</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="BusyTimeChart" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Trending Pizza (Seasonal)</p>
+                                    <div id="alert-trending" style="color: red;">Please Choose Month First to show</div>
+                                    <div id="current-season"></div>
+                                    <table id="pizza-table">
+                                        <thead id="pizza-table-head" style="text-align: between;"></thead>
+                                        <tbody id="pizza-table-body" style="text-align: center;">
+                                        </tbody>
+                                      </table>
+                                </div>
+                                <div class="chart">
+                                    <p>Top 5 Best Selling Pizzas</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TopPizzaChart" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Best Pizza Category</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TopPizzaCategory" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="chart">
+                                    <p>Top Pizza Size</p>
+                                    <div class="chartCard">
+                                        <div class="chartBox">
+                                          <canvas id="TopPizzaSize" width="200" height="150"></canvas>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </div>
+
+    <button id="chatbot-button" onclick="showBot()">
+        <i class="fa-solid fa-robot"></i>
+        <span style="display:block;">Bot</span>
+    </button>
+
+    <div id="chatbot-container">
+        <div class="chatbot-exit"><button onclick="exitBot()">&#10006;</button></div>
+        <h2>Chatbot Assistant</h2>
+        <div class="chatbot-chatbox">
+        <div id="chat-box" class="chat-box"></div>
+        <input type="text" id="question" class="question-input" placeholder="Ketik pertanyaan Anda di sini...">
+        <button class="ask-button" onclick="askQuestion()"><i class="fa-regular fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        function showBot(){
+            document.getElementById("chatbot-button").style.display = "hidden"
+            document.getElementById("chatbot-container").style.display = "block"
+        }
+
+        function exitBot(){
+            document.getElementById("chatbot-container").style.display = "none"
+            document.getElementById("chatbot-button").style.display = "block"
+        }
+
+        function askQuestion() {
+            const question = document.getElementById('question').value;
+            fetch('http://127.0.0.1:5000/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: question })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const chatBox = document.getElementById('chat-box');
+                chatBox.innerHTML = ''; // Clear chat box
+                data.conversations.forEach(item => {
+                    const chatItem = document.createElement('div');
+                    chatItem.className = 'chat-item';
+                    chatItem.innerHTML = `<div class="question">Q: ${item.question}</div><div class="answer">A: ${item.answer}</div>`;
+                    chatBox.appendChild(chatItem);
+                });
+                document.getElementById('question').value = ''; // Clear input field
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+    <section>
+        <div class="footer">
+            <p>© Section Semarang Team 22 RevoU 2024. All Rights Reserved</p>
+        </div>
+    </section>
+
+    <script src="./js/chart.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

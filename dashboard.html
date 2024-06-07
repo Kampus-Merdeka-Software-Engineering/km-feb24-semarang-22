@@ -12,6 +12,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Dashboard | Pizza Place</title>
+    <!--Pemanggilan script JQuery untuk import file navbar untuk meminimalkan repetisi pembuatan navbar-->
     <script>
         $(document).ready(function(){
             // Gunakan metode .load() untuk memuat konten dari file HTML lain ke dalam div dengan id "content"
@@ -20,9 +21,12 @@
     </script>
 </head>
 <body>
+    <!--Menaruh hasil compile dari JQuery ke dalam div ber id content-->
     <div id="content"></div>
+    <!--Penambahan id untuk animasi navbar-->
     <div id="main-dashboard">
             <div class="dashboard-base">
+                <!--Side summary yang di kiri-->
                 <div class="dashboard-side-menu">
                     <p><span>Welcome to</span> <span>Semarang 22</span> Dashboard!</p>
                     <div class="dashboard-summary">
@@ -42,8 +46,10 @@
                         </div>
                     </div>
                 </div>
+                <!--Kotak div untuk base chart, filter dan sort-->
                 <div class="dashboard-parent-content">
                     <div class="dashboard-content">
+                        <!--Kotak div untuk base filter dan sort yg nantinya agar bisa diflex-->
                         <div class="dashboard-filter-container">
                             <div class="dashboard-sort-filter">
                                 <div class="dashboard-filter">
@@ -75,6 +81,7 @@
                         </div>
                     </div>
                     <section>
+                        <!--Kotak div untuk daftar chartnya-->
                         <div class="dashboard-stat-base">
                             <div class="dashboard-stat">
                                 <div class="chart">

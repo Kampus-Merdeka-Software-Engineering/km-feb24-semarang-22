@@ -27,6 +27,7 @@ body{
             border: 1px solid black;
             width: 500px;
             padding: 20px;
+            margin-bottom: 70px;
         }
         .login-container p{
             text-align: center;

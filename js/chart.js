@@ -1,16 +1,22 @@
+//Deklarasi variabel untuk tempat menyimpan hasil compile chart js untuk ditampilkan lewat canvas HTML dengan id
 let ctx1 = document.getElementById('BusyTimeChart').getContext('2d');
 let ctx2 = document.getElementById('TopPizzaChart').getContext('2d');
 let ctx3 = document.getElementById('TopPizzaCategory').getContext('2d');
 let ctx4 = document.getElementById('TopPizzaSize').getContext('2d');
 let ctx5 = document.getElementById('TotalSalesYear').getContext('2d');
+
+//Deklarasi variabel untuk menyimpan object dari chart js
 let myChart1, myChart2, myChart3, myChart4, myChart5;
 
+//Deklarasi variabel untuk mengambil value select option dari HTML dengan id
 const selectElement = document.getElementById('month-select');
 const sortElement = document.getElementById('sort');
 
+//Deklarasi variabel untuk menyimpan value dari const diatas (hanya untuk mempermudah saja)
 let month;
 let sort;
 
+//Function anonim untuk memanggil function fetching data yang difilter berdasarkan bulan, function ini berjalan otomatis saat ada perubahan value pada select option filter bulan
 selectElement.addEventListener("change", (e) =>{
     month = e.target.value;
     if (month > '0'){
@@ -21,13 +27,14 @@ selectElement.addEventListener("change", (e) =>{
         fetchsummaryData(month);
         fetchTrending(month);
         document.getElementById('current-season').textContent = getSeason(month);
-    } else if (month === '0') {
+    } else if (month === '0') { //Jika value nya 0 maka yg akan ditampilkan adalah data keseluruhan tanpa difilter
         fetch_all();
         fetchTrending(month);
         document.getElementById('current-season').textContent = " ";
     }
 })
 
+//Deklarasi function fetch untuk semua data json tanpa filtering
 function fetch_all(){
     fetch("/json/pembelian shift perbulan.json")
     .then(response => response.json())
@@ -65,6 +72,7 @@ function fetch_all(){
     });
 }
 
+//Function busy time untuk fetching data yang difilter
 function fetchJsonBusyTime(month=""){
     fetch("/json/pembelian shift perbulan.json")
     .then(response => response.json())
@@ -75,11 +83,13 @@ function fetchJsonBusyTime(month=""){
     });
 }
 
+//Function membuat chart busy time dengan chart js
 function createBusyTimeChart(data) {
     if (myChart1) {
         myChart1.destroy(); // Destroy existing chart before creating a new one
     }
 
+    //Aggregasi data untuk menjumlahkan value data yang match di json
     const aggregatedData = data.reduce((acc, current) => {
         // Mencari index berdasarkan shift_waktu
         const index = acc.findIndex(item => item.shift_waktu === current.shift_waktu);
@@ -98,6 +108,7 @@ function createBusyTimeChart(data) {
         return acc;
       }, []);
 
+      //Pembuatan object chartnya
     myChart1 = new Chart(ctx1, {
         type: 'bar',
         data: {
@@ -133,6 +144,7 @@ function createBusyTimeChart(data) {
         }
     });
 
+    //Pembuatan function anonim untuk sorting asc/desc, berjalan otomatis ketika ada perubahan pada select option sort
     sortElement.addEventListener("change", (e) =>{
         sort = e.target.value;
         if (sort === 'asc'){
@@ -148,6 +160,7 @@ function createBusyTimeChart(data) {
         });
 }
 
+//Function top 5 pizza untuk fetching data yang difilter
     function fetchTopPizzaChart(month=""){
         fetch("/json/Top5PizzaNew.json")
         .then(response => response.json())
@@ -158,11 +171,13 @@ function createBusyTimeChart(data) {
         });
     }
 
+//Function membuat chart top 5 pizza dengan chart js
 function createTopPizzaChart(data) {
     if (myChart2) {
         myChart2.destroy(); // Destroy existing chart before creating a new one
     }
 
+    //Aggregasi data untuk menjumlahkan value data yang match di json
     const aggregatedData = data.reduce((acc, current) => {
         const index = acc.findIndex(item => item.Name === current.Name);
       
@@ -183,6 +198,7 @@ function createTopPizzaChart(data) {
       aggregatedData.sort((a, b) => b.TotalPurchases - a.TotalPurchases);
       let top5Data = aggregatedData.slice(0, 5);
 
+      //Pembuatan object chartnya
     myChart2 = new Chart(ctx2, {
         type: 'bar',
         data: {
@@ -218,6 +234,7 @@ function createTopPizzaChart(data) {
         }
     });
 
+    //Pembuatan function anonim untuk sorting asc/desc, berjalan otomatis ketika ada perubahan pada select option sort
     sortElement.addEventListener("change", (e) =>{
         sort = e.target.value;
         if (sort === 'asc'){
@@ -235,6 +252,7 @@ function createTopPizzaChart(data) {
         });
 }
 
+//Function kategori pizza untuk fetching data yang difilter
     function fetchTopPizzaCategory(month=""){
         fetch("/json/jenisPizzaPerbulan.json")
         .then(response => response.json())
@@ -245,11 +263,13 @@ function createTopPizzaChart(data) {
         });
     }
 
+    //Function membuat chart pizza category dengan chart js
 function createTopPizzaCategory(data) {
     if (myChart3) {
         myChart3.destroy(); // Destroy existing chart before creating a new one
     }
 
+    //Aggregasi data untuk menjumlahkan value data yang match di json
     const aggregatedData = data.reduce((acc, current) => {
         const index = acc.findIndex(item => item.category === current.category);
       
@@ -267,6 +287,7 @@ function createTopPizzaCategory(data) {
         return acc;
       }, []);
 
+      //Pembuatan object chartnya
     myChart3 = new Chart(ctx3, {
         type: 'doughnut',
         data: {
@@ -300,6 +321,7 @@ function createTopPizzaCategory(data) {
     });
 }
 
+//Function size pizza untuk fetching data yang difilter
     function fetchTopPizzaSize(month=""){
         fetch("/json/sizePizzaPerbulan.json")
         .then(response => response.json())
@@ -310,11 +332,13 @@ function createTopPizzaCategory(data) {
         });
     }
 
+    //Function membuat chart size pizza dengan chart js
 function createTopPizzaSize(data) {
     if (myChart4) {
         myChart4.destroy(); // Destroy existing chart before creating a new one
     }
 
+    //Aggregasi data untuk menjumlahkan value data yang match di json
     const aggregatedData = data.reduce((acc, current) => {
         const index = acc.findIndex(item => item.size === current.size);
       
@@ -332,8 +356,10 @@ function createTopPizzaSize(data) {
         return acc;
       }, []);
       
+      //Sorting data hasil aggregasi agar berurutan secara desc di awal
       aggregatedData.sort((a, b) => b.jumlah_total_pizza_terjual - a.jumlah_total_pizza_terjual);
 
+      //Pembuatan object chartnya
     myChart4 = new Chart(ctx4, {
         type: 'bar',
         data: {
@@ -369,6 +395,7 @@ function createTopPizzaSize(data) {
         },
     });
 
+    //Pembuatan function anonim untuk sorting asc/desc, berjalan otomatis ketika ada perubahan pada select option sort
     sortElement.addEventListener("change", (e) =>{
         sort = e.target.value;
         if (sort === 'asc'){
@@ -384,6 +411,7 @@ function createTopPizzaSize(data) {
         });
 }
 
+//Function sales setahun untuk fetching data yang difilter
 fetch("/json/Penjualan All Pizza Perbulan.json")
 .then(function (response) {
     if (response.status == 200) {
@@ -395,6 +423,7 @@ fetch("/json/Penjualan All Pizza Perbulan.json")
     createTotalSalesYear(jsonData5);
 });
 
+//Function membuat chart sales setahun dengan chart js
 function createTotalSalesYear(data) {
     if (myChart5) {
         myChart5.destroy(); // Destroy existing chart before creating a new one
@@ -402,6 +431,7 @@ function createTotalSalesYear(data) {
     // Mengurutkan data berdasarkan bulan
 data.sort((a, b) => a.month - b.month);
 
+//Function membuat chart busy time dengan chart js
 myChart5 = new Chart(ctx5, {
     type: 'line',
     data: {
@@ -436,6 +466,7 @@ myChart5 = new Chart(ctx5, {
     }
 });
 
+//Pembuatan function anonim untuk sorting asc/desc, berjalan otomatis ketika ada perubahan pada select option sort
 sortElement.addEventListener("change", (e) => {
     sort = e.target.value;
 
@@ -520,6 +551,7 @@ sortElement.addEventListener("change", (e) => {
         });
     }
 
+    //Function summary yg ada di kiri untuk fetching data yang difilter
     function fetchsummaryData(month=""){
         fetch("/json/Penjualan All Pizza Perbulan.json")
         .then(response => response.json())
@@ -530,7 +562,9 @@ sortElement.addEventListener("change", (e) => {
     }
 
 
+    //Function untuk menuliskan value summary ke HTML
 function summaryData(data) {
+    // Aggregasi data json untuk total pizza terjual + pendapatan cash
         const aggregatedData = data.reduce((acc, current) => {
             acc.total += parseFloat(current.total);
             acc.total_quantity += parseInt(current.total_quantity);

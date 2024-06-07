@@ -25,13 +25,20 @@ setInterval(getCurrentTime, 1000);
 // Panggil getCurrentTime() untuk pertama kali saat halaman dimuat
 getCurrentTime();
 
+// Function animasi dan untuk memunculkan menu yang di samping
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main-dashboard").style.transition = "margin-left 0.5s";
-    document.getElementById("main-dashboard").style.marginLeft = "200px";
+    let dashboard = document.getElementById("main-dashboard");
+    if (dashboard != null){
+        document.getElementById("main-dashboard").style.transition = "margin-left 0.5s";
+        document.getElementById("main-dashboard").style.marginLeft = "200px";
+    }
 
-    document.getElementById("main-menu").style.transition = "margin-left 0.5s";
-    document.getElementById("main-menu").style.marginLeft = "200px";
+    let team = document.getElementById("main-team");
+    if (team != null){
+        document.getElementById("main-team").style.transition = "margin-left 0.5s";
+        document.getElementById("main-team").style.marginLeft = "200px";
+    }
 
     var header = document.querySelector('.footer > p');
     header.style.transition = "margin-left 0.5s";
@@ -41,10 +48,20 @@ function openNav() {
     menuSection.style.marginLeft = "200px";
 }
 
+// Function animasi untuk menghilangkan menu yang disamping
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main-dashboard").style.transition = "margin-left 0.5s";
-    document.getElementById("main-dashboard").style.marginLeft = "0";
+    let dashboard = document.getElementById("main-dashboard");
+    if (dashboard != null){
+        document.getElementById("main-dashboard").style.transition = "margin-left 0.5s";
+        document.getElementById("main-dashboard").style.marginLeft = "0";
+    }
+
+    let team = document.getElementById("main-team");
+    if (team != null){
+        document.getElementById("main-team").style.transition = "margin-left 0.5s";
+        document.getElementById("main-team").style.marginLeft = "0";
+    }
 
     var header = document.querySelector('.footer > p');
     header.style.transition = "margin-left 0.5s";
